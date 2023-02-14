@@ -31,7 +31,7 @@ const eliminarComputadora = () => {
     }
 
     let listadoComputadoras = computadorasSeleccionadas.map((c, i) => {
-        return `${i + 1}. ID: ${c.id}, Precio: $${c.precio}`;
+        return `${i + 1}) ID: ${c.id}, Nombre: ${c.nombre}, Precio: $${c.precio}`;
     }).join("\n");
     let idComputadora = parseInt(prompt(`Selecciona el número de la computadora que deseas eliminar:\n\n${listadoComputadoras}`));
     let indice = idComputadora - 1;
@@ -51,14 +51,15 @@ const mostrarTotal = () => {
         listadoComputadoras = "No hay computadoras seleccionadas.";
     } else {
         listadoComputadoras = computadorasSeleccionadas.map((c, i) => {
-            return `${i + 1}. ID: ${c.id} - Nombre: ${c.nombre} - Precio: $${c.precio}`;
+            return `${i + 1}) ID: ${c.id} - Nombre: ${c.nombre} - Precio: $${c.precio}`;
         }).join("\n");
     }
     alert(`Resumen de Computadoras:\n\n${listadoComputadoras}\n\nTotal: $${precioTotal}`);
 };
 
-while (true) {
-    let accion = parseInt(prompt("¿Qué deseas hacer?:\n1) Agregar productos\n2) Eliminar productos\n3) Mostrar total\n4) Salir"));
+let continuar = true;
+while (continuar) {
+    let accion = parseInt(prompt("¿Qué deseas hacer?:\n1 - Agregar productos\n2 - Eliminar productos\n3 - Mostrar total\n4 - Salir"));
     switch (accion) {
         case 1:
             seleccionarComputadora();
@@ -71,6 +72,7 @@ while (true) {
             break;
         case 4:
             alert("Programa Finalizado!");
+            continuar = false;
             break;
         default:
             alert("Opción no válida, por favor ingresa un número entre 1 y 4");

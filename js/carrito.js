@@ -66,13 +66,11 @@ function actualizarTotalCarrito() {
     for (let i = 0; i < carritoItems.length; i++) {
         let item = carritoItems[i];
         let precioElemento = item.getElementsByClassName("carrito-item-precio")[0];
-        console.log(precioElemento);
+
         // Saco el simbolo de dolar y el punto 
         let precio = parseFloat(precioElemento.innerText.replace("u$s", "").replace(".", ""));
-        console.log(precio);
         let cantidadItem = item.getElementsByClassName("carrito-item-cantidad")[0];
         let cantidad = cantidadItem.value;
-        console.log(cantidad);
         total += (precio * cantidad);
     }
     total = Math.round(total * 100) / 100;
@@ -98,7 +96,6 @@ function sumarCantidad(event){
     let buttonClicked = event.target;
     let selector = buttonClicked.parentElement;
     let cantidadActual = selector.getElementsByClassName("carrito-item-cantidad")[0].value;
-    console.log(cantidadActual);
     cantidadActual++;
     selector.getElementsByClassName("carrito-item-cantidad")[0].value = cantidadActual;
     // Actualizo el total del carrito
@@ -110,7 +107,6 @@ function restarCantidad(event){
     let buttonClicked = event.target;
     let selector = buttonClicked.parentElement;
     let cantidadActual = selector.getElementsByClassName("carrito-item-cantidad")[0].value;
-    console.log(cantidadActual);
     cantidadActual--;
 
     // Controlo que no sea menor que 1

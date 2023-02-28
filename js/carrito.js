@@ -1,7 +1,7 @@
 // Variable que mantiene el estado visible del carrito
 let carritoVisible = false;
 
-// Espermos que todos los elementos de la pàgina cargen para ejecutar el script
+// Espero que todos los elementos de la pàgina cargen para ejecutar el script
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready)
 } else {
@@ -45,13 +45,13 @@ function ready() {
     // cargo los elementos desde el LocalStorage
     cargarCarritoDesdeLocalStorage();
 
-    // Si hay elementos en el localStorage, hacemos visible el carrito
+    // Si hay elementos en el localStorage, hago visible el carrito
     if (carritoVisible) {
         hacerVisibleCarrito();
     }
 }
 
-// Elimino todos los elementos del carrito y lo ocultamos
+// Elimino todos los elementos del carrito y lo oculto
 function pagarClicked() {
     alert("Gracias por la compra");
     // Elimino todos los elmentos del carrito
@@ -213,8 +213,8 @@ function eliminarItemCarrito(event) {
     //Actualizo el total del carrito
     actualizarTotalCarrito();
 
-    // la siguiente funciòn controla si hay elementos en el carrito
-    // Si no hay elimino el carrito
+    /* la siguiente funciòn controla si hay elementos en el carrito
+     Si no hay elimino el carrito */
     ocultarCarrito();
 }
 // Funciòn que controla si hay elementos en el carrito. Si no hay oculto el carrito.
@@ -230,7 +230,7 @@ function ocultarCarrito() {
         items.style.width = '100%';
     }
 }
-// Actualizamos el total de Carrito
+// Actualizo el total de Carrito
 function actualizarTotalCarrito() {
     // selecciono el contenedor carrito
     let carritoContenedor = document.getElementsByClassName('carrito')[0];
@@ -240,7 +240,7 @@ function actualizarTotalCarrito() {
     for (let i = 0; i < carritoItems.length; i++) {
         let item = carritoItems[i];
         let precioElemento = item.getElementsByClassName('carrito-item-precio')[0];
-        //Saco el simobolo dolar y el punto de milesimos.
+        // Saco el simobolo dolar y el punto de milesimos.
         let precio = parseFloat(precioElemento.innerText.replace('u$s', '').replace('.', ''));
         let cantidadItem = item.getElementsByClassName('carrito-item-cantidad')[0];
         console.log(precio);

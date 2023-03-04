@@ -1,5 +1,5 @@
 // Variable que mantiene el estado visible del carrito
-let carritoVisible = false;
+carritoVisible = false;
 
 // Espero que todos los elementos de la pàgina cargen para ejecutar el script
 if (document.readyState == 'loading') {
@@ -9,7 +9,7 @@ if (document.readyState == 'loading') {
 }
 
 function ready() {
-    carritoVisible = localStorage.getItem('carritoVisible') === 'true';
+    carritoVisible = localStorage.getItem('carrito-visible') === 'true';
 
     // Agrego funcionalidad a los botones eliminar del carrito
     let botonesEliminarItem = document.getElementsByClassName('btn-eliminar');
@@ -63,7 +63,7 @@ function pagarClicked() {
 
     // Eliminar todos los elementos del LocalStorage
     localStorage.removeItem('carrito');
-    localStorage.removeItem('carritoVisible');
+    localStorage.removeItem('carrito-visible');
 
     // Ocultar el carrito
     ocultarCarrito();
@@ -100,7 +100,7 @@ function hacerVisibleCarrito() {
 
     let items = document.getElementsByClassName('contenedor-items')[0];
     items.style.width = '60%';
-    localStorage.setItem('carritoVisible', 'true');
+    localStorage.setItem('carrito-visible', 'true');
 }
 
 // Funcion que obtiene los items guardados del carrito

@@ -57,6 +57,7 @@ function pagarClicked() {
     let timerInterval
     Swal.fire({
         title: 'Muchas gracias por su compra! 🥳',
+        width: '570px',
         icon: 'success',
         html: 'Este mensaje se autodestruira en <b></b> millisegundos.💣💥',
         timer: 4000,
@@ -253,11 +254,25 @@ function eliminarItemCarrito(event) {
             buttonClicked.parentElement.parentElement.remove();
             actualizarTotalCarrito();
             ocultarCarrito();
-            Swal.fire(
+            Toastify({
+                text: "Producto eliminado!",
+                duration: 3000,
+                destination: "https://github.com/apvarun/toastify-js",
+                newWindow: true,
+                close: true,
+                gravity: "bottom", // `top` or `bottom`
+                position: "center", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                    background: "linear-gradient(to right, #b43a99, #fd1d1d, #fc9e45)",
+                },
+                onClick: function () { } // Callback after click
+            }).showToast();
+/*             Swal.fire(
                 'Eliminado!',
                 'El producto ha sido eliminado.',
                 'success'
-            )
+            ) */
         }
     })
     //buttonClicked.parentElement.parentElement.remove();

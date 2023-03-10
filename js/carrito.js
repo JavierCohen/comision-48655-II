@@ -45,9 +45,6 @@ function ready() {
     // Cargo los elementos desde el archivo .json
     cargarCarritoDesdeJson();
 
-    /*     // cargo los elementos desde el LocalStorage
-    cargarCarritoDesdeLocalStorage(); */
-
     // Si hay elementos en el localStorage, hago visible el carrito
     if (carritoVisible) {
         hacerVisibleCarrito();
@@ -143,15 +140,6 @@ function cargarCarritoDesdeJson() {
         })
         .catch(error => console.error('Error al cargar el carrito:', error));
 }
-/* function cargarCarritoDesdeLocalStorage() {
-    let carrito = JSON.parse(localStorage.getItem('carrito'));
-    if (carrito) {
-        for (let i = 0; i < carrito.length; i++) {
-            let item = carrito[i];
-            agregarItemAlCarrito(item.titulo, item.precio, item.imagenSrc, item.cantidad);
-        }
-    }
-} */
 
 // Funciòn que agrega un item al carrito
 function agregarItemAlCarrito(titulo, precio, imagenSrc) {

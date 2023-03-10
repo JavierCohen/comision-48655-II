@@ -112,8 +112,6 @@ function agregarAlCarritoClicked(event) {
     agregarItemAlCarrito(titulo, precio, imagenSrc);
 
     hacerVisibleCarrito();
-
-    guardarCarritoEnLocalStorage();
 }
 
 // Funcion que hace visible el carrito
@@ -130,7 +128,7 @@ function hacerVisibleCarrito() {
 
 // Funcion que obtiene los items guardados del carrito
 function cargarCarritoDesdeJson() {
-    fetch("carrito.json")
+    fetch("../js/carrito.json")
         .then(response => response.json())
         .then(data => {
             for (let i = 0; i < data.length; i++) {

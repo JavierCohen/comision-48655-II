@@ -1,32 +1,32 @@
 [
     {
-        "titulo": "Laptop",
-        "precio": 2.500,
-        "imagenSrc": "../img/AsusRog.jpg",
-        "cantidad": 2
+    "titulo": "Laptop",
+    "precio": 2.500,
+    "imagenSrc": "../img/AsusRog.jpg",
+    "cantidad": 0
     },
     {
-        "titulo": "Desktop2",
-        "precio": 1.300,
-        "imagenSrc": "../img/Desktop.jpg",
-        "cantidad": 1
+    "titulo": "Desktop2",
+    "precio": 1.300,
+    "imagenSrc": "../img/Desktop.jpg",
+    "cantidad": 0
     },
     {
-        "titulo": "Macbook",
-        "precio": 2.300,
-        "imagenSrc": "../img/MacBook.jpg",
-        "cantidad": 3
+    "titulo": "Macbook",
+    "precio": 2.300,
+    "imagenSrc": "../img/MacBook.jpg",
+    "cantidad": 0
     },
     {
-        "titulo": "Chromebook",
-        "precio": 1.500,
-        "imagenSrc": "../img/ChromeBook.jpg",
-        "cantidad": 3
+    "titulo": "Chromebook",
+    "precio": 1.500,
+    "imagenSrc": "../img/ChromeBook.jpg",
+    "cantidad": 0
     },
     {
-        "titulo": "PC Gamer",
-        "precio": 2.900,
-        "imagenSrc": "../img/PcGamer.jpg",
-        "cantidad": 3
+    "titulo": "PC Gamer",
+    "precio": 2.900,
+    "imagenSrc": "../img/PcGamer.jpg",
+    "cantidad": 0
     }
 ]

@@ -42,8 +42,11 @@ function ready() {
     // Agrego funcionalidad al botón comprar
     document.getElementsByClassName('btn-pagar')[0].addEventListener('click', pagarClicked)
 
-    // cargo los elementos desde el LocalStorage
-    cargarCarritoDesdeLocalStorage();
+    // Cargo los elementos desde el archivo .json
+    cargarCarritoDesdeJson();
+
+    /*     // cargo los elementos desde el LocalStorage
+    cargarCarritoDesdeLocalStorage(); */
 
     // Si hay elementos en el localStorage, hago visible el carrito
     if (carritoVisible) {
@@ -129,7 +132,18 @@ function hacerVisibleCarrito() {
 }
 
 // Funcion que obtiene los items guardados del carrito
-function cargarCarritoDesdeLocalStorage() {
+function cargarCarritoDesdeJson() {
+    fetch("carrito.json")
+        .then(response => response.json())
+        .then(data => {
+            for (let i = 0; i < data.length; i++) {
+                let item = data[i];
+                agregarItemAlCarrito(item.titulo, item.precio, item.imagenSrc, item.cantidad);
+            }
+        })
+        .catch(error => console.error('Error al cargar el carrito:', error));
+}
+/* function cargarCarritoDesdeLocalStorage() {
     let carrito = JSON.parse(localStorage.getItem('carrito'));
     if (carrito) {
         for (let i = 0; i < carrito.length; i++) {
@@ -137,7 +151,7 @@ function cargarCarritoDesdeLocalStorage() {
             agregarItemAlCarrito(item.titulo, item.precio, item.imagenSrc, item.cantidad);
         }
     }
-}
+} */
 
 // Funciòn que agrega un item al carrito
 function agregarItemAlCarrito(titulo, precio, imagenSrc) {
@@ -268,11 +282,6 @@ function eliminarItemCarrito(event) {
                 },
                 onClick: function () { } // Callback after click
             }).showToast();
-/*             Swal.fire(
-                'Eliminado!',
-                'El producto ha sido eliminado.',
-                'success'
-            ) */
         }
     })
     //buttonClicked.parentElement.parentElement.remove();
@@ -280,7 +289,7 @@ function eliminarItemCarrito(event) {
     actualizarTotalCarrito();
 
     /* la siguiente funciòn controla si hay elementos en el carrito
-     Si no hay elimino el carrito */
+    Si no hay elimino el carrito */
     ocultarCarrito();
 }
 

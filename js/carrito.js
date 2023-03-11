@@ -89,7 +89,8 @@ function pagarClicked() {
     // Eliminar todos los elementos del LocalStorage
     localStorage.removeItem('carrito');
     localStorage.removeItem('carrito-visible');
-
+    localStorage.removeItem('carrito-total');
+    
     // Ocultar el carrito
     ocultarCarrito();
 }
@@ -128,7 +129,7 @@ function hacerVisibleCarrito() {
 
 // Funcion que obtiene los items guardados del carrito
 function cargarCarritoDesdeJson() {
-    fetch("../js/carrito.json")
+    fetch("./carrito.json")
         .then(response => response.json())
         .then(data => {
             for (let i = 0; i < data.length; i++) {
@@ -270,7 +271,7 @@ function eliminarItemCarrito(event) {
             }).showToast();
         }
     })
-    //buttonClicked.parentElement.parentElement.remove();
+    buttonClicked.parentElement.parentElement.remove();
     //Actualizo el total del carrito
     actualizarTotalCarrito();
 
@@ -305,7 +306,6 @@ function actualizarTotalCarrito() {
         // Saco el simobolo dolar y el punto de milesimos.
         let precio = parseFloat(precioElemento.innerText.replace('u$s', '').replace('.', ''));
         let cantidadItem = item.getElementsByClassName('carrito-item-cantidad')[0];
-        console.log(precio);
         let cantidad = cantidadItem.value;
         total = total + (precio * cantidad);
     }
